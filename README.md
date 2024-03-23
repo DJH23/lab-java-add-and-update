@@ -550,3 +550,12 @@ public class Employee {
   ```
 
 </details>
+
+<answers_to_lab_questions>
+
+I used the same type of route, specifically a `@PutMapping` route, was used to update both patient information and an employee's department. This strategy was chosen because `PUT` is idempotent, meaning it can be called multiple times without different outcomes. It's a complete replacement of the resource at the specified URI, which is suitable for updating the entire patient information or an employee's department.
+
+Advantages of this strategy include simplicity and idempotency. It's straightforward to implement and use, and calling it multiple times won't have different effects. However, a disadvantage is that it may not be as efficient as `PATCH` for updating partial data, as `PUT` requires the entire object to be sent in the request.
+
+The cost-benefit between using `PUT` and `PATCH` depends on the specific use case. `PUT` is more suitable when you want to update the entire resource, while `PATCH` is more efficient when you only need to update part of the resource. However, `PATCH` is not idempotent and requires more complex handling on the server side.
+<answers_to_lab_questions>
